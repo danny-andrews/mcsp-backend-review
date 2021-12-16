@@ -2,12 +2,19 @@ const request = require('supertest');
 const createServer = require('./server');
 const { Client } = require("pg");
 
-test('/api/test returns test data', async () => {
-  const db = new Client({
+let db;
+beforeEach(() => {
+  db = new Client({
     database: "workshop-demo",
   });
   db.connect();
+})
 
+afterEach(() => {
+  db.end();
+})
+
+test('/api/test returns test data', async () => {
   const app = createServer(db)
   const res = await request(app).get('/api/test')
   expect(res.statusCode).toBe(200);
@@ -17,5 +24,4 @@ test('/api/test returns test data', async () => {
     { id: 2, name: 'meg' },
     { id: 3, name: 'maria' }
   ]);
-  db.end();
 });
