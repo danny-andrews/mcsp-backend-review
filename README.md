@@ -12,11 +12,26 @@
 8. Create our database
 9. Created tables and seed data
 
+## REST
+
+https://www.restapitutorial.com/
+
+Representation State Transfer
+
+### Use HTTP Methods meaningfully.
+
+GET - Reading data
+POST - Creating data
+PUT/PATCH - Updating data
+DELETE - Deleting data
+
+### Pass identifiers in URL rather than query string
+
+### Use response codes meaningfully
+
 ## Asynchronous Code
 
 ## AJAX
-
-## REST
 
 ## Database
 
